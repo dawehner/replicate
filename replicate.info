@@ -1,0 +1,6 @@
+core = "7.x"
+description = "Replicate provide an API to replicate (duplicate) entities. This modules also provide hooks to control exactly how the parts of an entity are duplicated."
+name = "Replicate"
+package = "Entity"
+project = "replicate"
+version = "7.x-1.0"
