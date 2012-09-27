@@ -4,3 +4,5 @@ name = "Replicate"
 package = "Entity"
 project = "replicate"
 version = "7.x-1.0"
+
+dependencies[] = entity
