@@ -5,11 +5,13 @@
  */
 
 /**
- * Replicate the entity corresponding to the type and id passed in argument
- * and save it.
+ * Replicate the entity corresponding to the type and id passed in argument and save it.
  *
- * @param string $entity_type The entity type.
- * @param integer $id The unique entity identifier.
+ * @param string $entity_type
+ *   The entity type.
+ * @param int $id
+ *   The unique entity identifier.
+ *
  * @return The newly created entity id if the clone has been created and saved , else FALSE.
  *
  * @see replicate_entity()
@@ -20,11 +22,13 @@ function replicate_entity_by_id($entity_type, $id) {
 }
 
 /**
- * Replicate the entity passed in argument
- * and save it.
+ * Replicate the entity passed in argument and save it.
  *
- * @param string $entity_type The entity type.
- * @param object $entity The entity to replicate.
+ * @param string $entity_type
+ *   The entity type.
+ * @param object $entity
+ *   The entity to replicate.
+ *
  * @return The newly created entity id if the clone has been created and saved , else FALSE.
  */
 function replicate_entity($entity_type, $entity) {
@@ -49,7 +53,7 @@ function replicate_entity($entity_type, $entity) {
  * @param integer $id The unique entity identifier.
  * @return the replicated entity.
  *
- * @see replicate_clone_entity().
+ * @see replicate_clone_entity()
  */
 function replicate_clone_entity_by_id($entity_type, $id) {
   $original = entity_load_single($entity_type, $id);
@@ -58,10 +62,14 @@ function replicate_clone_entity_by_id($entity_type, $id) {
 
 /**
  * Replicate the entity passed in argument.
- * Do not save the replicated entity.
  *
- * @param string $entity_type The entity type.
- * @param object $entity The entity to replicate.
+ * This function do not save the replicated entity.
+ *
+ * @param string $entity_type
+ *   The entity type.
+ * @param object $entity
+ *   The entity to replicate.
+ *
  * @return the replicated entity.
  */
 function replicate_clone_entity($entity_type, $entity) {
@@ -90,8 +98,10 @@ function replicate_clone_entity($entity_type, $entity) {
 /**
  * Replicate the fields of an entity.
  *
- * @param object $entity The entity for which to clone the fields.
- * @param string $entity_type The entity type.
+ * @param object $entity
+ *   The entity for which to clone the fields.
+ * @param string $entity_type
+ *   The entity type.
  */
 function replicate_clone_fields(&$entity, $entity_type) {
   foreach (field_info_fields() as $field_name => $field) {
