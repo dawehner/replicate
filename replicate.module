@@ -49,7 +49,7 @@ function replicate_entity($entity_type, $entity) {
  * @param integer $id The unique entity identifier.
  * @return the replicated entity.
  *
- * @see replicate_clone_entity()
+ * @see replicate_clone_entity().
  */
 function replicate_clone_entity_by_id($entity_type, $id) {
   $original = entity_load_single($entity_type, $id);
@@ -103,6 +103,17 @@ function replicate_clone_fields(&$entity, $entity_type) {
         $function($entity, $entity_type, $field_name);
       }
     }
+  }
+}
+
+/**
+ * Implements hook_help().
+ */
+function replicate_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#replicate':
+      // Return a line-break version of the module README.txt.
+      return check_markup(file_get_contents(dirname(__FILE__) . "/README.txt"));
   }
 }
 

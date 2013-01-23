@@ -15,7 +15,7 @@
  *   Reference to the fully loaded entity object being saved (the clone) that
  *   can be altered as needed.
  *
- * @see replicate_clone_entity()
+ * @see replicate_clone_entity().
  */
 function hook_replicate_entity_ENTITY_TYPE(&$replica) {
   $replica->entity_id = NULL;
