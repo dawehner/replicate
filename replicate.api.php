@@ -23,6 +23,8 @@ function hook_replicate_entity_ENTITY_TYPE(&$replica) {
 
 /**
  * Alter the replica before returning it.
+ * This hook is called at the end of the operations of replicate_clone_entity() function,
+ * allowing to alter the replicate before it is return to the caller.
  *
  * @param object $replica
  *   Reference to the fully loaded entity object being saved (the clone) that
@@ -39,7 +41,7 @@ function hook_replicate_entity_alter(&$replica, $entity_type, $original) {
 
 /**
  * Manage the replication of a specific field type.
- * May be used to manage the replication of custom field type, or node references.
+ * May be used to manage the replication of custom field type, for example node references.
  *
  * @param object $replica Reference to the fully loaded entity object being saved (the clone) that
  *   can be altered as needed.

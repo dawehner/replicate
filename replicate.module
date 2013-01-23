@@ -96,7 +96,7 @@ function replicate_clone_entity($entity_type, $entity) {
 function replicate_clone_fields(&$entity, $entity_type) {
   foreach (field_info_fields() as $field_name => $field) {
     if (isset($entity->$field_name)) {
-      // Here call hook functions. Don't use module_invoke because
+      // Here call hook functions. Doesn't use module_invoke because we
       // want to pass the clone by reference.
       foreach (module_implements('replicate_field_' . $field['type']) as $module) {
         $function = $module . '_replicate_field_' . $field['type'];
