@@ -12,7 +12,9 @@
  * @param int $id
  *   The unique entity identifier.
  *
- * @return The newly created entity id if the clone has been created and saved , else FALSE.
+ * @return mixed
+ *   The newly created entity id if the clone has been created and saved,
+ *   else FALSE.
  *
  * @see replicate_entity()
  */
@@ -29,7 +31,9 @@ function replicate_entity_by_id($entity_type, $id) {
  * @param object $entity
  *   The entity to replicate.
  *
- * @return The newly created entity id if the clone has been created and saved , else FALSE.
+ * @return mixed
+ *   The newly created entity id if the clone has been created and saved,
+ *   else FALSE.
  */
 function replicate_entity($entity_type, $entity) {
   $clone = replicate_clone_entity($entity_type, $entity);
@@ -47,11 +51,16 @@ function replicate_entity($entity_type, $entity) {
 
 /**
  * Replicate the entity corresponding to the type and id passed in argument.
+ *
  * Do not save the replicated entity.
  *
- * @param string $entity_type The entity type.
- * @param integer $id The unique entity identifier.
- * @return the replicated entity.
+ * @param string $entity_type
+ *   The entity type.
+ * @param int $id
+ *   The unique entity identifier.
+ *
+ * @return object
+ *   A new replicated entity.
  *
  * @see replicate_clone_entity()
  */
@@ -70,7 +79,8 @@ function replicate_clone_entity_by_id($entity_type, $id) {
  * @param object $entity
  *   The entity to replicate.
  *
- * @return the replicated entity.
+ * @return object
+ *   A new replicated entity.
  */
 function replicate_clone_entity($entity_type, $entity) {
   $clone = clone $entity;
