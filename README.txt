@@ -1,11 +1,34 @@
 Replicate module provides an API to duplicate / clone an entity.
 
+
 Use:
 ----
 Use replicate_clone_entity() function to clone an entity without saving it.
 Use replicate_entity() function to clone an entity and save it at the end of 
 the process.
-See replicate.api.php file for the use of hooks functions.
+See replicate.api.php file for detailed use of hooks functions.
+
+
+Very basic usage example:
+--------------------------
+/**
+ * Replicate Basic test function.
+ *
+ * In this example we will suppose that there is a node with nid = 1 we want
+ * to replicate. 
+ */
+function replicate_test_function() {
+  // Load a newly created node as and entity.
+  $entity = array_shift(entity_load('node', array(1)));
+  
+  // Duplicate the entity and save the replica.
+  replicate_entity('node', $entity);
+  
+  // You can use replicate_clone_entity() instead, alter the replica afterward
+  // and manually save the entity, but if you want to implement a generic
+  // code like adding ' [Replicate]' to the end of every replicated node title,
+  // use the API hook hook_replicate_entity_ENTITY_TYPE().
+}
 
 
 Basics:
