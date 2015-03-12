@@ -73,7 +73,7 @@ function hook_replicate_entity_alter(&$replica, $entity_type, $original) {
 function hook_replicate_field_FIELD_TYPE(&$replica, $entity_type, $field_name) {
   // Simplified example from Replicate Field Collection module.
   // Manage the replication of a Field Collection field with a custom function.
-  foreach ($entity->$field_name as $language => $values) {
-    my_custom_function_to_clone_field_collections($entity, $entity_type, $field_name, $language);
+  foreach ($replica->$field_name as $language => $values) {
+    my_custom_function_to_clone_field_collections($replica, $entity_type, $field_name, $language);
   }
 }
