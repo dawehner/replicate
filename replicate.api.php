@@ -9,7 +9,7 @@
  * Alter the replica of type ENTITY_TYPE.
  *
  * Use this function to make specific changes to an entity of a given type.
- * Usefull to "clean" custom entities, ie reset their id to be able to save
+ * Useful to "clean" custom entities, ie reset their id to be able to save
  * the new copy for example.
  *
  * @param object $replica
