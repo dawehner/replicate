@@ -19,8 +19,11 @@
  * @see replicate_entity()
  */
 function replicate_entity_by_id($entity_type, $id) {
-  $original = entity_load_single($entity_type, $id);
-  return replicate_entity($entity_type, $original);
+  if (($original = entity_load_single($entity_type, $id)) !== FALSE) {
+    return replicate_entity($entity_type, $original);
+  }
+
+  return FALSE;
 }
 
 /**
@@ -65,8 +68,11 @@ function replicate_entity($entity_type, $entity) {
  * @see replicate_clone_entity()
  */
 function replicate_clone_entity_by_id($entity_type, $id) {
-  $original = entity_load_single($entity_type, $id);
-  return replicate_clone_entity($entity_type, $original);
+  if (($original = entity_load_single($entity_type, $id)) !== FALSE) {
+    return replicate_clone_entity($entity_type, $original);
+  }
+
+  return FALSE;
 }
 
 /**
