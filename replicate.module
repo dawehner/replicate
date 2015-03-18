@@ -173,13 +173,6 @@ function replicate_replicate_entity_taxonomy_term(&$entity) {
 /**
  * Implements hook_replicate_entity_ENTITY_TYPE().
  */
-function replicate_replicate_entity_user(&$entity) {
-  $entity->uid = NULL;
-}
-
-/**
- * Implements hook_replicate_entity_ENTITY_TYPE().
- */
 function replicate_replicate_entity_comment(&$entity) {
   $entity->cid = NULL;
   $entity->created = NULL;
