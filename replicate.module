@@ -101,6 +101,10 @@ function replicate_clone_entity($entity_type, $entity) {
     // Set the entity as new entity.
     $clone->is_new = TRUE;
 
+    // Reset entity id.
+    $entity_info = entity_get_info($entity_type);
+    $clone->{$entity_info['entity keys']['id']} = NULL;
+
     // Let other modules do special actions on each field.
     replicate_clone_fields($clone, $entity_type);
 
@@ -147,7 +151,6 @@ function replicate_help($path, $arg) {
  * Implements hook_replicate_entity_ENTITY_TYPE().
  */
 function replicate_replicate_entity_node(&$entity) {
-  $entity->nid = NULL;
   $entity->tnid = NULL;
   $entity->vid = NULL;
   $entity->created = NULL;
@@ -159,29 +162,7 @@ function replicate_replicate_entity_node(&$entity) {
 /**
  * Implements hook_replicate_entity_ENTITY_TYPE().
  */
-function replicate_replicate_entity_taxonomy_vocabulary(&$entity) {
-  $entity->vid = NULL;
-}
-
-/**
- * Implements hook_replicate_entity_ENTITY_TYPE().
- */
-function replicate_replicate_entity_taxonomy_term(&$entity) {
-  $entity->tid = NULL;
-}
-
-/**
- * Implements hook_replicate_entity_ENTITY_TYPE().
- */
 function replicate_replicate_entity_comment(&$entity) {
-  $entity->cid = NULL;
   $entity->created = NULL;
   $entity->changed = NULL;
-}
-
-/**
- * Implements hook_replicate_entity_ENTITY_TYPE().
- */
-function replicate_replicate_entity_file(&$entity) {
-  $entity->fid = NULL;
 }

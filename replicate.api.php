@@ -9,8 +9,6 @@
  * Alter the replica of type ENTITY_TYPE.
  *
  * Use this function to make specific changes to an entity of a given type.
- * Useful to "clean" custom entities, ie reset their id to be able to save
- * the new copy for example.
  *
  * @param object $replica
  *   Reference to the fully loaded entity object being saved (the clone) that
@@ -19,10 +17,6 @@
  * @see replicate_clone_entity()
  */
 function hook_replicate_entity_ENTITY_TYPE(&$replica) {
-  // Clean the custom entity so Drupal will create a new entry
-  // and not update the old one when saving.
-  $replica->entity_id = NULL;
-
   // Do something specific to this type of entity.
   $wrapper = entity_metadata_wrapper('ENTITY_TYPE', $replica);
   $wrapper->field_my_field->set('This is a replica of a ENTITY_TYPE');
