@@ -45,6 +45,8 @@ function replicate_entity($entity_type, $entity) {
     list($entity_id) = entity_extract_ids($entity_type, $clone);
 
     if (isset($entity_id)) {
+      module_invoke_all('replicate_entity_after_save', $clone, $entity_type, $entity);
+
       return $entity_id;
     }
   }
