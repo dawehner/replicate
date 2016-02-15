@@ -1,0 +1,4 @@
+services:
+  replicate.replicator:
+    class: \Drupal\replicate\Replicator
+    arguments: ['@entity_type.manager', '@event_dispatcher']

@@ -45,14 +45,16 @@ function replicate_drush_help($command) {
  */
 function drush_replicate_drush_entity_by_ids($entity_type = NULL, $ids = NULL) {
   $original_ids = explode(',', $ids);
+  /** @var \Drupal\replicate\Replicator $replicator */
+  $replicator = \Drupal::service('replicate.replicator');
 
   foreach ($original_ids as $original_id) {
-    $entity_id = replicate_entity_by_id($entity_type, $original_id);
-    if (!empty($entity_id)) {
-      drush_log(dt('@entity_type @entity_id is clone of @entity_type @original_id', array('@entity_type' => $entity_type, '@entity_id' => $entity_id, '@original_id' => (int)$original_id)), 'success');
+    $entity = $replicator->replicateByEntityId($entity_type, $original_id);
+    if (!empty($entity)) {
+      drush_log(dt('@entity_type @entity_id is clone of @entity_type @original_id', ['@entity_type' => $entity_type, '@entity_id' => $entity->id(), '@original_id' => (int) $original_id]), 'success');
     }
     else {
-      drush_log(dt('Impossible to replicate @entity_type @original_id', array('@entity_type' => $entity_type, '@original_id' => check_plain($original_id))), 'error');
+      drush_log(dt('Impossible to replicate @entity_type @original_id', ['@entity_type' => $entity_type, '@original_id' => $original_id]), 'error');
     }
   }
 }
