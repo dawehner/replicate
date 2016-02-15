@@ -32,4 +32,11 @@ class ReplicateEntityFieldEvent extends ReplicateEventBase {
     $this->fieldItemList = $field_item_list;
   }
 
+  /**
+   * @return FieldItemListInterface
+   */
+  public function getFieldItemList() {
+    return $this->fieldItemList;
+  }
+
 }
