@@ -26,8 +26,7 @@ class ReplicatePathFieldSubscriber implements EventSubscriberInterface {
    * {@inheritdoc}
    */
   public static function getSubscribedEvents() {
-    $events[ReplicatorEvents::replicateEntityField('path')][] = 'onPathClone';
+    return $events[ReplicatorEvents::replicateEntityField('path')][] = 'onPathClone';
   }
-
 
 }
